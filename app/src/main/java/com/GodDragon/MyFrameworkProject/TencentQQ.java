@@ -8,19 +8,19 @@ import com.tencent.tauth.Tencent;
 import org.json.JSONObject;
 
 public class TencentQQ {
-    private static Tencent m_tencent;
+    public static String TAG;
     private static Activity m_mainActivity;
-    public static String TAG = "TencentQQ";
-    private static String APP_ID = "102093746";
-    private static SdkMessageListener m_callBack = new SdkMessageListener();
+    private static String APP_ID;
+    private static SdkMessageListener m_callBack;
+    private static Tencent m_tencent;
 
     public static void Init(Activity activity)
     {
-        Log.d(TAG,"TencentQQ Init");
-
-        m_tencent = Tencent.createInstance(APP_ID,activity.getApplicationContext());
-
+        TAG = "TencentQQ";
         m_mainActivity = activity;
+        APP_ID = "102093746";
+        m_callBack = new SdkMessageListener();
+        m_tencent = Tencent.createInstance(APP_ID,activity.getApplicationContext());
     }
 
     public static void Login()
